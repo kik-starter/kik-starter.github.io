@@ -116,7 +116,7 @@
        TO REPLACE A PHOTO:
        Option A) Drop a real <img> inside the .photo div:
          <div class="photo photo--cover">
-           <img src="photos/kiko-portrait.jpg" alt="Kiko portrait">
+           <img loading="lazy" src="photos/kiko-portrait.jpg" alt="Kiko portrait">
          </div>
        Option B) Set background-image on the element:
          style="background-image:url(photos/kiko.jpg);
@@ -831,7 +831,7 @@
     </div>
     <!-- EDIT: main portrait photo -->
     <div class="hero__photo photo photo--cover">
-      <img src="assets/kiko-main-portrait.jpg" alt="Kiko — main portrait" style="object-position: top center;">
+      <img src="assets/kiko-main-portrait.webp" alt="Kiko — main portrait" style="object-position: top center;">
     </div>
   </div>
 </section>
@@ -856,7 +856,7 @@
     <!-- ---- Story block 1: Found ---- -->
     <div class="story__block" data-num="01">
       <div class="story__photo photo photo--cover photo--cover__no-background">
-        <img src="assets/kiko-found-on-the-street-2.png" alt="Kiko found on the street">
+        <img loading="lazy" src="assets/kiko-found-on-the-street-2.webp" alt="Kiko found on the street">
       </div>
       <div class="story__text">
         <span class="story__chapter">Chapter 01 — Found</span>
@@ -869,7 +869,7 @@
     <!-- ---- Story block 2: Winter ---- -->
     <div class="story__block story__block--rev" data-num="02">
       <div class="story__photo photo photo--cover">
-        <img src="assets/Kiko-in-the-enclosure-winter.jpeg" alt="Kiko in the enclosure, winter">
+        <img loading="lazy" src="assets/Kiko-in-the-enclosure-winter.webp" alt="Kiko in the enclosure, winter">
       </div>
       <div class="story__text">
         <span class="story__chapter">Chapter 02 — Winter</span>
@@ -882,7 +882,7 @@
     <!-- ---- Story block 3: Surgery ---- -->
     <div class="story__block" data-num="03">
       <div class="story__photo photo photo--cover">
-        <img src="assets/Kiko-resting-after-spay-surgery.jpeg" alt="Kiko resting after spay surgery">
+        <img loading="lazy" src="assets/Kiko-resting-after-spay-surgery.webp" alt="Kiko resting after spay surgery">
       </div>
       <div class="story__text">
         <span class="story__chapter">Chapter 03 — Surgery</span>
@@ -894,7 +894,7 @@
     <!-- ---- Story block 4: Foster home ---- -->
     <div class="story__block story__block--rev" data-num="04">
       <div class="story__photo photo photo--cover">
-        <video src="assets/Kiko-at-the-foster-home-first-days.mp4" autoplay muted loop playsinline></video>
+        <video src="assets/Kiko-at-the-foster-home-first-days.mp4" poster="assets/Kiko-at-the-foster-home-first-days-poster.jpg" autoplay muted loop playsinline preload="none"></video>
       </div>
       <div class="story__text">
         <span class="story__chapter">Chapter 04 — Foster Home</span>
@@ -921,13 +921,13 @@
 
     <div class="first-days__photos">
       <div class="first-days__photo photo photo--cover">
-        <img src="assets/Kiko-under-the-table.jpeg" alt="Kiko under the table">
+        <img loading="lazy" src="assets/Kiko-under-the-table.webp" alt="Kiko under the table">
       </div>
       <div class="first-days__photo photo photo--cover">
-        <img src="assets/Kiko-peeking-out.jpeg" alt="Kiko peeking out">
+        <img loading="lazy" src="assets/Kiko-peeking-out.webp" alt="Kiko peeking out">
       </div>
       <div class="first-days__photo photo photo--cover">
-        <video src="assets/Kiko-with-fuji.mp4" autoplay muted loop playsinline></video>
+        <video src="assets/Kiko-with-fuji.mp4" poster="assets/Kiko-with-fuji-poster.jpg" autoplay muted loop playsinline preload="none"></video>
       </div>
     </div>
 
@@ -954,7 +954,7 @@
     <div class="trust__grid">
       <div class="trust__card">
         <div class="trust__photo photo photo--cover">
-          <video src="assets/Kiko-with-fuji.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/Kiko-with-fuji.mp4" poster="assets/Kiko-with-fuji-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="trust__card-body">
           <span class="trust__stage-num">Stage 1</span>
@@ -965,7 +965,7 @@
 
       <div class="trust__card">
         <div class="trust__photo photo photo--cover">
-          <video src="assets/KIKO-WITH-A-PERSON.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/KIKO-WITH-A-PERSON.mp4" poster="assets/KIKO-WITH-A-PERSON-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="trust__card-body">
           <span class="trust__stage-num">Stage 2</span>
@@ -1089,7 +1089,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <video src="assets/FIRST-WALK.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/FIRST-WALK.mp4" poster="assets/FIRST-WALK-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1100,7 +1100,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <video src="assets/FIRST-PLAY-WITH-A-DOG.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/FIRST-PLAY-WITH-A-DOG.mp4" poster="assets/FIRST-PLAY-WITH-A-DOG-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1111,7 +1111,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <video src="assets/first-bath.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/first-bath.mp4" poster="assets/first-bath-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1122,7 +1122,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <img src="assets/FIRST-TOY.jpeg" alt="First toy">
+          <img loading="lazy" src="assets/FIRST-TOY.jpeg" alt="First toy">
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1133,7 +1133,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <img src="assets/FIRST-BED.jpeg" alt="First bed">
+          <img loading="lazy" src="assets/FIRST-BED.jpeg" alt="First bed">
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1144,7 +1144,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <img src="assets/FIRST-STEP-OUT-FROM-UNDER-THE-TABLE.jpeg" alt="First step out from under the table">
+          <img loading="lazy" src="assets/FIRST-STEP-OUT-FROM-UNDER-THE-TABLE.jpeg" alt="First step out from under the table">
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1155,7 +1155,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <img src="assets/FIRST-HUG-WITH-A-PERSON.jpeg" alt="First hug with a person">
+          <img loading="lazy" src="assets/FIRST-HUG-WITH-A-PERSON.jpeg" alt="First hug with a person">
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1166,7 +1166,7 @@
 
       <div class="first-card">
         <div class="first-card__photo photo photo--cover">
-          <video src="assets/KIKO-OUT-ON-A-WALK-OFF-LEASH.mp4" autoplay muted loop playsinline></video>
+          <video src="assets/KIKO-OUT-ON-A-WALK-OFF-LEASH.mp4" poster="assets/KIKO-OUT-ON-A-WALK-OFF-LEASH-poster.jpg" autoplay muted loop playsinline preload="none"></video>
         </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
@@ -1198,31 +1198,31 @@
     <div class="being-kiko__gallery">
       <div class="gallery-item">
         <div class="photo photo--cover photo--dark" style="height:100%; min-height:400px; border-radius:0;">
-          <img src="assets/KIKO'S-MOST-EXPRESSIVE-PHOTO.jpeg" alt="Kiko's most expressive photo">
+          <img loading="lazy" src="assets/KIKO'S-MOST-EXPRESSIVE-PHOTO.jpeg" alt="Kiko's most expressive photo">
         </div>
         <p class="gallery-item__caption">Lying in the sun, tracking its movement across the flat like a very small satellite dish.</p>
       </div>
       <div class="gallery-item">
         <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
-          <img src="assets/KIKO-WITH-DEER-ANTLER-CHEW.jpeg" alt="Kiko with deer antler chew">
+          <img loading="lazy" src="assets/KIKO-WITH-DEER-ANTLER-CHEW.jpeg" alt="Kiko with deer antler chew">
         </div>
         <p class="gallery-item__caption">Deer antler. Hours of focused, very serious work.</p>
       </div>
       <div class="gallery-item">
         <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
-          <img src="assets/KIKO-WITH-YOGHURT-CONTAINER.jpeg" alt="Kiko with yoghurt container">
+          <img loading="lazy" src="assets/KIKO-WITH-YOGHURT-CONTAINER.jpeg" alt="Kiko with yoghurt container">
         </div>
         <p class="gallery-item__caption">Will clean a yoghurt pot with surgical precision.</p>
       </div>
       <div class="gallery-item">
         <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
-          <img src="assets/KIKO-SLEEPING-IN-A-FUNNY-POSE.jpeg" alt="Kiko sleeping in a funny pose">
+          <img loading="lazy" src="assets/KIKO-SLEEPING-IN-A-FUNNY-POSE.jpeg" alt="Kiko sleeping in a funny pose">
         </div>
         <p class="gallery-item__caption">Her sleeping positions are art. Document them all.</p>
       </div>
       <div class="gallery-item">
         <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
-          <img src="assets/KIKO-ON-THE-BALCONY.jpeg" alt="Kiko on the balcony">
+          <img loading="lazy" src="assets/KIKO-ON-THE-BALCONY.jpeg" alt="Kiko on the balcony">
         </div>
         <p class="gallery-item__caption">Balcony supervisor. Watching the neighbourhood. Very thorough.</p>
       </div>
@@ -1474,7 +1474,7 @@
 
       <div class="gear-card">
         <div class="gear-card__photo photo photo--cover">
-          <img src="assets/HARNESS.jpeg" alt="Harness">
+          <img loading="lazy" src="assets/HARNESS.jpeg" alt="Harness">
         </div>
         <div class="gear-card__body">
           <p class="gear-card__title">H-Shape Harness</p>
@@ -1484,7 +1484,7 @@
 
       <div class="gear-card">
         <div class="gear-card__photo photo photo--cover">
-          <img src="assets/LONG-LINE.jpeg" alt="Long line">
+          <img loading="lazy" src="assets/LONG-LINE.jpeg" alt="Long line">
         </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Long Line (5 m)</p>
@@ -1494,7 +1494,7 @@
 
       <div class="gear-card">
         <div class="gear-card__photo photo photo--cover">
-          <img src="assets/ROPE-TOY.jpeg" alt="Rope toy">
+          <img loading="lazy" src="assets/ROPE-TOY.jpeg" alt="Rope toy">
         </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Rope Toy</p>
@@ -1504,7 +1504,7 @@
 
       <div class="gear-card">
         <div class="gear-card__photo photo photo--cover">
-          <img src="assets/DOG-BED.jpeg" alt="Dog bed">
+          <img loading="lazy" src="assets/DOG-BED.jpeg" alt="Dog bed">
         </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Orthopedic Bed</p>
@@ -1537,7 +1537,7 @@
     </div>
     <!-- EDIT: the best photo of Kiko -->
     <div class="finally__photo photo photo--cover photo--dark">
-      <video src="assets/Kiko-the-best-one.mp4" autoplay muted loop playsinline></video>
+      <video src="assets/Kiko-the-best-one.mp4" poster="assets/Kiko-the-best-one-poster.jpg" autoplay muted loop playsinline preload="none"></video>
     </div>
   </div>
 </section>

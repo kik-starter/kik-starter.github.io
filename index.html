@@ -744,7 +744,7 @@
         text-align: center;
       }
       .hero__tagline { margin-left: auto; margin-right: auto; }
-      .hero__photo { max-width: 420px; margin: 0 auto; aspect-ratio: 4 / 3; }
+      .hero__photo { max-width: 420px; margin: 0 auto; }
 
       /* Story */
       .story__block,
@@ -832,7 +832,7 @@
     </div>
     <!-- EDIT: main portrait photo -->
     <div class="hero__photo photo photo--cover">
-      <img src="assets/kiko-main-portrait.jpg" alt="Kiko — main portrait">
+      <img src="assets/kiko-main-portrait.jpg" alt="Kiko — main portrait" style="object-position: top center;">
     </div>
   </div>
 </section>
@@ -869,7 +869,9 @@
 
     <!-- ---- Story block 2: Winter ---- -->
     <div class="story__block story__block--rev" data-num="02">
-      <div class="story__photo photo">[photo: Kiko in the enclosure, winter]</div>
+      <div class="story__photo photo photo--cover">
+        <img src="assets/Kiko-in-the-enclosure-winter.jpeg" alt="Kiko in the enclosure, winter">
+      </div>
       <div class="story__text">
         <span class="story__chapter">Chapter 02 — Winter</span>
         <h3 class="t-subheading mt-xs">The Whole Winter, Together</h3>
@@ -963,7 +965,9 @@
       </div>
 
       <div class="trust__card">
-        <div class="trust__photo photo">[photo: Kiko with a person]</div>
+        <div class="trust__photo photo photo--cover">
+          <video src="assets/KIKO-WITH-A-PERSON.mp4" autoplay muted loop playsinline></video>
+        </div>
         <div class="trust__card-body">
           <span class="trust__stage-num">Stage 2</span>
           <h3 class="t-subheading mt-xs">Then, Us</h3>
@@ -1085,7 +1089,9 @@
     <div class="firsts__grid mt-lg">
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first walk]</div>
+        <div class="first-card__photo photo photo--cover">
+          <video src="assets/FIRST-WALK.mp4" autoplay muted loop playsinline></video>
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Real Walk</p>
@@ -1094,7 +1100,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first play with a dog]</div>
+        <div class="first-card__photo photo photo--cover">
+          <video src="assets/FIRST-PLAY-WITH-A-DOG.mp4" autoplay muted loop playsinline></video>
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Play With a Dog</p>
@@ -1114,7 +1122,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first toy]</div>
+        <div class="first-card__photo photo photo--cover">
+          <img src="assets/FIRST-TOY.jpeg" alt="First toy">
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Her Own Toy</p>
@@ -1123,7 +1133,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first bed]</div>
+        <div class="first-card__photo photo photo--cover">
+          <img src="assets/FIRST-BED.jpeg" alt="First bed">
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Her Own Bed</p>
@@ -1132,7 +1144,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first step out from under the table]</div>
+        <div class="first-card__photo photo photo--cover">
+          <img src="assets/FIRST-STEP-OUT-FROM-UNDER-THE-TABLE.jpeg" alt="First step out from under the table">
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Out from Under the Table</p>
@@ -1141,7 +1155,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: first hug with a person]</div>
+        <div class="first-card__photo photo photo--cover">
+          <img src="assets/FIRST-HUG-WITH-A-PERSON.jpeg" alt="First hug with a person">
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Hug</p>
@@ -1150,7 +1166,9 @@
       </div>
 
       <div class="first-card">
-        <div class="first-card__photo photo">[photo: Kiko out on a walk off-leash]</div>
+        <div class="first-card__photo photo photo--cover">
+          <video src="assets/KIKO-OUT-ON-A-WALK-OFF-LEASH.mp4" autoplay muted loop playsinline></video>
+        </div>
         <div class="first-card__body">
           <span class="first-card__label">First</span>
           <p class="first-card__title">Off-Leash Walk</p>
@@ -1180,23 +1198,33 @@
 
     <div class="being-kiko__gallery">
       <div class="gallery-item">
-        <div class="photo photo--dark" style="height:100%; min-height:400px; border-radius:0;">[photo: Kiko's most expressive photo]</div>
+        <div class="photo photo--cover photo--dark" style="height:100%; min-height:400px; border-radius:0;">
+          <img src="assets/KIKO'S-MOST-EXPRESSIVE-PHOTO.jpeg" alt="Kiko's most expressive photo">
+        </div>
         <p class="gallery-item__caption">Lying in the sun, tracking its movement across the flat like a very small satellite dish.</p>
       </div>
       <div class="gallery-item">
-        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko with deer antler chew]</div>
+        <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
+          <img src="assets/KIKO-WITH-DEER-ANTLER-CHEW.jpeg" alt="Kiko with deer antler chew">
+        </div>
         <p class="gallery-item__caption">Deer antler. Hours of focused, very serious work.</p>
       </div>
       <div class="gallery-item">
-        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko with yoghurt container]</div>
+        <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
+          <img src="assets/KIKO-WITH-YOGHURT-CONTAINER.jpeg" alt="Kiko with yoghurt container">
+        </div>
         <p class="gallery-item__caption">Will clean a yoghurt pot with surgical precision.</p>
       </div>
       <div class="gallery-item">
-        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko sleeping in a funny pose]</div>
+        <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
+          <img src="assets/KIKO-SLEEPING-IN-A-FUNNY-POSE.jpeg" alt="Kiko sleeping in a funny pose">
+        </div>
         <p class="gallery-item__caption">Her sleeping positions are art. Document them all.</p>
       </div>
       <div class="gallery-item">
-        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko on the balcony]</div>
+        <div class="photo photo--cover photo--dark" style="aspect-ratio:1/1; border-radius:0;">
+          <img src="assets/KIKO-ON-THE-BALCONY.jpeg" alt="Kiko on the balcony">
+        </div>
         <p class="gallery-item__caption">Balcony supervisor. Watching the neighbourhood. Very thorough.</p>
       </div>
     </div>
@@ -1446,7 +1474,9 @@
       <!-- EDIT: for each card, change the photo label, title, and description -->
 
       <div class="gear-card">
-        <div class="gear-card__photo photo">[photo: harness]</div>
+        <div class="gear-card__photo photo photo--cover">
+          <img src="assets/HARNESS.jpeg" alt="Harness">
+        </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Y-Shape Harness</p>
           <p class="gear-card__desc">Julius K9 IDC. No pressure on the throat, easy to put on once she's used to the routine.</p>
@@ -1454,7 +1484,9 @@
       </div>
 
       <div class="gear-card">
-        <div class="gear-card__photo photo">[photo: long line]</div>
+        <div class="gear-card__photo photo photo--cover">
+          <img src="assets/LONG-LINE.jpeg" alt="Long line">
+        </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Long Line (5 m)</p>
           <p class="gear-card__desc">For recall training in open areas. Get one with a handle loop, not just a clip end.</p>
@@ -1462,7 +1494,9 @@
       </div>
 
       <div class="gear-card">
-        <div class="gear-card__photo photo">[photo: rope toy]</div>
+        <div class="gear-card__photo photo photo--cover">
+          <img src="assets/ROPE-TOY.jpeg" alt="Rope toy">
+        </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Rope Toy</p>
           <p class="gear-card__desc">Her absolute favorite. She doesn't play tug — she carries it around like a prize. Buy a spare.</p>
@@ -1470,7 +1504,9 @@
       </div>
 
       <div class="gear-card">
-        <div class="gear-card__photo photo">[photo: dog bed]</div>
+        <div class="gear-card__photo photo photo--cover">
+          <img src="assets/DOG-BED.jpeg" alt="Dog bed">
+        </div>
         <div class="gear-card__body">
           <p class="gear-card__title">Orthopedic Bed</p>
           <p class="gear-card__desc">She likes having her own space. A raised bolster edge she can rest her chin on is a major plus.</p>

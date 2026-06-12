@@ -1,1 +1,1504 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- EDIT: page title shown in browser tab -->
+  <title>Kiko — From Georgia to Germany</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* =============================================
+       DESIGN TOKENS
+    ============================================= */
+    :root {
+      --brown-dark:  #1C3044;   /* deep navy  — dark sections */
+      --brown-mid:   #1E4242;   /* deep teal  — dark sections */
+      --red:         #C4593A;
+      --olive:       #607C30;   /* olive green */
+      --beige-warm:  #C4D8CC;   /* soft sage  — medium sections */
+      --beige-light: #D5E8F5;   /* pale sky blue — light sections */
+      --cream:       #F5F2EE;   /* near-white cream */
+      --sand:        #A4C0CA;   /* muted slate-blue — dividers */
+
+      --text-dark:   #192838;
+      --text-mid:    #385060;
+      --text-light:  #F5F2EE;
+
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --r-sm:  8px;
+      --r-md:  14px;
+      --r-lg:  22px;
+    }
+
+    /* =============================================
+       RESET
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background: var(--cream);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+    img { display: block; max-width: 100%; }
+
+    /* =============================================
+       LAYOUT
+    ============================================= */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* =============================================
+       TYPOGRAPHY SCALE
+    ============================================= */
+    .t-display {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+    }
+    .t-heading {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.75rem);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+    }
+    .t-subheading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .t-body {
+      font-size: clamp(0.95rem, 1.7vw, 1.075rem);
+      line-height: 1.7;
+    }
+    .t-small {
+      font-size: 0.875rem;
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       COLOR UTILITIES
+    ============================================= */
+    .c-red    { color: var(--red); }
+    .c-olive  { color: var(--olive); }
+    .c-light  { color: var(--text-light); }
+    .c-mid    { color: var(--text-mid); }
+    .c-muted-light { color: rgba(250,246,240,0.65); }
+
+    /* =============================================
+       SPACING UTILITIES
+    ============================================= */
+    .mt-xs  { margin-top: 0.5rem; }
+    .mt-sm  { margin-top: 1rem; }
+    .mt-md  { margin-top: 2rem; }
+    .mt-lg  { margin-top: 3rem; }
+    .mt-xl  { margin-top: 5rem; }
+    .mb-md  { margin-bottom: 2rem; }
+
+    /* =============================================
+       PHOTO PLACEHOLDERS
+       —————————————————————————————————————————
+       TO REPLACE A PHOTO:
+       Option A) Drop a real <img> inside the .photo div:
+         <div class="photo photo--cover">
+           <img src="photos/kiko-portrait.jpg" alt="Kiko portrait">
+         </div>
+       Option B) Set background-image on the element:
+         style="background-image:url(photos/kiko.jpg);
+                background-size:cover; background-position:center;"
+       and remove the text node inside.
+    ============================================= */
+    .photo {
+      background-color: var(--sand);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.25rem;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #5A7880;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .photo--cover img,
+    .photo--cover video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+    .photo--dark {
+      background-color: rgba(255,255,255,0.08);
+      color: rgba(250,246,240,0.5);
+    }
+    .photo--olive {
+      background-color: rgba(255,255,255,0.14);
+      color: rgba(250,246,240,0.55);
+    }
+
+    /* =============================================
+       ACCENT ELEMENTS
+    ============================================= */
+    .accent-bar {
+      display: block;
+      width: 44px;
+      height: 5px;
+      background: var(--red);
+      border-radius: 3px;
+      margin-bottom: 1.25rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 13px;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .pill--red    { background: var(--red);        color: #fff; }
+    .pill--olive  { background: var(--olive);       color: #fff; }
+    .pill--dark   { background: var(--brown-dark);  color: #fff; }
+    .pill--ghost  { background: rgba(255,255,255,0.16); color: var(--text-light); }
+
+    /* =============================================
+       SECTION 1: HERO
+       bg: beige-light
+    ============================================= */
+    #hero {
+      background: var(--beige-light);
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 2rem;
+    }
+    .hero__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero__eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+    .hero__name {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(5rem, 16vw, 10.5rem);
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: var(--brown-dark);
+    }
+    .hero__tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-mid);
+      max-width: 38ch;
+      line-height: 1.6;
+      margin-top: 1.75rem;
+    }
+    /* EDIT: .hero__photo — swap placeholder for real photo */
+    .hero__photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: var(--r-lg);
+    }
+
+    /* =============================================
+       SECTION 2: HER STORY
+       bg: cream
+       SIGNATURE: ghosted chapter numbers via ::before
+    ============================================= */
+    #story {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+    .story__header {
+      margin-bottom: 5rem;
+    }
+    .story__block {
+      display: flex;
+      gap: 5rem;
+      align-items: center;
+      margin-bottom: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .story__block:last-child { margin-bottom: 0; }
+    .story__block--rev { flex-direction: row-reverse; }
+    /* Signature: ghosted background number — change data-num in HTML */
+    .story__block::before {
+      content: attr(data-num);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(8rem, 25vw, 22rem);
+      color: var(--beige-warm);
+      position: absolute;
+      top: -0.1em;
+      right: -0.05em;
+      line-height: 1;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.05em;
+    }
+    .story__block--rev::before {
+      right: auto;
+      left: -0.05em;
+    }
+    .story__block > * { position: relative; z-index: 1; }
+    /* EDIT: .story__photo — swap placeholder for real photo */
+    .story__photo {
+      width: 100%;
+      max-width: 460px;
+      flex-shrink: 0;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--r-lg);
+    }
+    .story__text { flex: 1; min-width: 0; }
+    .story__chapter {
+      font-family: var(--font-display);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    /* =============================================
+       SECTION 3: FIRST DAYS
+       bg: olive — light text
+    ============================================= */
+    #first-days {
+      background: var(--olive);
+      color: var(--text-light);
+      padding: 6rem 0;
+    }
+    .first-days__header { margin-bottom: 3rem; }
+    .first-days__photos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    /* EDIT: first-days photos — swap each placeholder */
+    .first-days__photo {
+      aspect-ratio: 3 / 4;
+      border-radius: var(--r-md);
+    }
+    .first-days__quote {
+      border-left: 5px solid var(--red);
+      padding: 1.75rem 2.5rem;
+      background: rgba(255,255,255,0.1);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      max-width: 72ch;
+    }
+    .first-days__quote p {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      line-height: 1.4;
+      color: var(--text-light);
+    }
+
+    /* =============================================
+       SECTION 4: TRUST
+       bg: beige-warm
+    ============================================= */
+    #trust {
+      background: var(--beige-warm);
+      padding: 6rem 0;
+    }
+    .trust__header { margin-bottom: 4rem; }
+    .trust__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .trust__card {
+      background: var(--cream);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    /* EDIT: .trust__photo — swap placeholder for real photo */
+    .trust__photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+    }
+    .trust__card-body { padding: 2rem; }
+    .trust__stage-num {
+      font-family: var(--font-display);
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* =============================================
+       SECTION 5: WHAT SHE KNOWS
+       bg: brown-dark — light text
+    ============================================= */
+    #knows {
+      background: var(--brown-dark);
+      color: var(--text-light);
+      padding: 6rem 0;
+    }
+    .knows__header { margin-bottom: 4rem; }
+    .knows__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .knows__card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+    }
+    .knows__icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .knows__card-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 0.875rem;
+      letter-spacing: 0.04em;
+    }
+    .knows__list { list-style: none; }
+    .knows__list li {
+      font-size: 0.875rem;
+      color: rgba(250,246,240,0.65);
+      padding: 4px 0 4px 1.2em;
+      position: relative;
+    }
+    .knows__list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-size: 0.72rem;
+      top: 5px;
+    }
+
+    /* =============================================
+       SECTION 6: HER FIRSTS
+       bg: cream
+    ============================================= */
+    #firsts {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+    .firsts__header { margin-bottom: 3.5rem; }
+    .firsts__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .first-card {
+      background: var(--beige-light);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .first-card:hover { transform: translateY(-4px); }
+    /* EDIT: .first-card__photo — swap placeholder for real photo */
+    .first-card__photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+    .first-card__body { padding: 0.875rem 1rem 1.25rem; }
+    .first-card__label {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .first-card__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.3rem;
+    }
+    .first-card__caption {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       SECTION 7: KIKO BEING KIKO
+       bg: brown-mid — light text
+    ============================================= */
+    #being-kiko {
+      background: var(--brown-mid);
+      color: var(--text-light);
+      padding: 6rem 0;
+    }
+    .being-kiko__header { margin-bottom: 3.5rem; }
+    .being-kiko__gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    /* First item spans both rows */
+    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item .photo {
+      height: 100%;
+      min-height: 200px;
+      border-radius: 0;
+    }
+    .gallery-item__caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(18,32,50,0.88));
+      padding: 2rem 1rem 0.875rem;
+      font-size: 0.78rem;
+      font-style: italic;
+      color: rgba(250,246,240,0.9);
+    }
+    .being-kiko__habits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .habit-chip {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: var(--r-md);
+      padding: 1.25rem 1.5rem;
+    }
+    .habit-chip__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-light);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .habit-chip p {
+      font-size: 0.85rem;
+      color: rgba(250,246,240,0.62);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       SECTION 8: WORK IN PROGRESS
+       bg: beige-light
+    ============================================= */
+    #wip {
+      background: var(--beige-light);
+      padding: 6rem 0;
+    }
+    .wip__header { margin-bottom: 4rem; }
+    .wip__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .wip__col-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--brown-dark);
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--sand);
+    }
+    .wip__item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    .wip__dot {
+      width: 9px;
+      height: 9px;
+      min-width: 9px;
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+    .wip__dot--red   { background: var(--red); }
+    .wip__dot--olive { background: var(--olive); }
+    .wip__item-text strong {
+      display: block;
+      font-weight: 700;
+      font-size: 0.93rem;
+      color: var(--brown-dark);
+      margin-bottom: 3px;
+    }
+    .wip__item-text p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* =============================================
+       SECTION 9: CARE CHEATSHEET
+       bg: cream
+    ============================================= */
+    #care {
+      background: var(--cream);
+      padding: 6rem 0;
+    }
+    .care__header { margin-bottom: 3.5rem; }
+    .care__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .care-card {
+      background: var(--beige-warm);
+      border-radius: var(--r-lg);
+      padding: 2rem;
+    }
+    .care-card__section {
+      font-family: var(--font-display);
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olive);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .care-card__title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--brown-dark);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--sand);
+    }
+    .care-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--sand);
+    }
+    .care-row:last-child { border-bottom: none; }
+    .care-row__label {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+    .care-row__value {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brown-dark);
+      text-align: right;
+    }
+
+    /* =============================================
+       SECTION 10: GEAR WE LIKE
+       bg: beige-warm
+    ============================================= */
+    #gear {
+      background: var(--beige-warm);
+      padding: 6rem 0;
+    }
+    .gear__header { margin-bottom: 3.5rem; }
+    .gear__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .gear-card {
+      background: var(--cream);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    /* EDIT: .gear-card__photo — swap placeholder for real photo */
+    .gear-card__photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+    .gear-card__body { padding: 1.1rem 1.25rem 1.5rem; }
+    .gear-card__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--brown-dark);
+      margin-bottom: 0.35rem;
+    }
+    .gear-card__desc {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       SECTION 11: FINALLY HOME
+       bg: brown-dark — light text. No CTA.
+    ============================================= */
+    #finally-home {
+      background: var(--brown-dark);
+      color: var(--text-light);
+      padding: 7rem 0;
+      min-height: 80svh;
+      display: flex;
+      align-items: center;
+    }
+    .finally__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .finally__heading {
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+    .finally__text p {
+      font-size: clamp(1rem, 1.9vw, 1.125rem);
+      color: rgba(250,246,240,0.72);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .finally__sig {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--red);
+      margin-top: 0.5rem;
+    }
+    /* EDIT: .finally__photo — swap placeholder for real photo */
+    .finally__photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border-radius: var(--r-lg);
+      max-width: 460px;
+    }
+
+    /* =============================================
+       RESPONSIVE — 900px breakpoint
+    ============================================= */
+    @media (max-width: 900px) {
+      /* Hero */
+      #hero { padding: 4.5rem 1.5rem; }
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+      .hero__tagline { margin-left: auto; margin-right: auto; }
+      .hero__photo { max-width: 420px; margin: 0 auto; aspect-ratio: 4 / 3; }
+
+      /* Story */
+      .story__block,
+      .story__block--rev {
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      .story__photo { max-width: 100%; }
+      .story__block::before { font-size: 40vw; }
+
+      /* First Days */
+      .first-days__photos { grid-template-columns: 1fr 1fr; }
+      .first-days__photos .first-days__photo:last-child { display: none; }
+
+      /* Trust */
+      .trust__grid { grid-template-columns: 1fr; }
+
+      /* Knows */
+      .knows__grid { grid-template-columns: 1fr 1fr; }
+
+      /* Firsts */
+      .firsts__grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Being Kiko */
+      .being-kiko__gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: auto; }
+      .being-kiko__habits { grid-template-columns: 1fr 1fr; }
+
+      /* WIP */
+      .wip__grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      /* Care */
+      .care__grid { grid-template-columns: 1fr; }
+
+      /* Gear */
+      .gear__grid { grid-template-columns: 1fr 1fr; }
+
+      /* Finally */
+      #finally-home { padding: 5rem 0; }
+      .finally__inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      .finally__photo {
+        max-width: 360px;
+        margin: 0 auto;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container { padding: 0 1.25rem; }
+      #hero { padding: 4rem 1.25rem; }
+      .knows__grid { grid-template-columns: 1fr; }
+      .being-kiko__habits { grid-template-columns: 1fr; }
+      .gear__grid { grid-template-columns: 1fr 1fr; }
+      .first-days__quote { padding: 1.25rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .first-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==============================================
+     SECTION 1: HERO
+     EDIT: eyebrow line, name, tagline, photo
+============================================== -->
+<section id="hero">
+  <div class="hero__inner">
+    <div>
+      <!-- EDIT: small eyebrow text above the name -->
+      <p class="hero__eyebrow">Georgia → Germany</p>
+      <!-- EDIT: the dog's name -->
+      <h1 class="hero__name">Kiko.</h1>
+      <!-- EDIT: one-line tagline -->
+      <p class="hero__tagline">A street dog from Tbilisi. Raised by a whole neighbourhood. Ready to love you — just give her a minute.</p>
+    </div>
+    <!-- EDIT: main portrait photo -->
+    <div class="hero__photo photo photo--cover">
+      <img src="assets/kiko-main-portrait.jpg" alt="Kiko — main portrait">
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 2: HER STORY
+     EDIT: section intro, all 4 story blocks
+     NOTE: data-num controls the ghosted background
+           number — must match the chapter number
+============================================== -->
+<section id="story">
+  <div class="container">
+    <div class="story__header">
+      <span class="accent-bar"></span>
+      <!-- EDIT: section heading -->
+      <h2 class="t-heading">Her Story</h2>
+      <!-- EDIT: section intro paragraph -->
+      <p class="t-body c-mid mt-sm" style="max-width:52ch;">From a cold corner of Tbilisi to a family that was waiting for her. Every stop along the way made her who she is.</p>
+    </div>
+
+    <!-- ---- Story block 1: Found ---- -->
+    <div class="story__block" data-num="01">
+      <div class="story__photo photo photo--cover">
+        <img src="assets/kiko-found-on-the-street-3.png" alt="Kiko found on the street">
+      </div>
+      <div class="story__text">
+        <span class="story__chapter">Chapter 01 — Found</span>
+        <h3 class="t-subheading mt-xs">New Year's Eve, a Hill, and Eight Puppies</h3>
+        <p class="t-body c-mid mt-sm">Kiko was born into a pack of about 12 street dogs — a family that deeply distrusted humans and was scared of everything. Just before New Year, we found 8 puppies on a hill. On January 1st, in the rain, we dragged a doghouse up the slope. The puppies looked at it with complete indifference and decided not to live in it.</p>
+        <p class="t-body c-mid mt-sm">The neighbours threw rocks at them. People fed them salad, aubergine with mayonnaise, and whatever else was around. So we built an enclosure — brought doghouses, piles of cushions, blankets, and warm food twice a day. Kiko was the curious one. The playful one. The one who was always happy to see us, even when she didn't trust us yet.</p>
+      </div>
+    </div>
+
+    <!-- ---- Story block 2: Winter ---- -->
+    <div class="story__block story__block--rev" data-num="02">
+      <div class="story__photo photo">[photo: Kiko in the enclosure, winter]</div>
+      <div class="story__text">
+        <span class="story__chapter">Chapter 02 — Winter</span>
+        <h3 class="t-subheading mt-xs">The Whole Winter, Together</h3>
+        <p class="t-body c-mid mt-sm">All winter we came every day — warm water, hot meals, flea treatment, and slow attempts at making friends. They weren't interested in being friends. But we kept showing up anyway.</p>
+        <p class="t-body c-mid mt-sm">Kiko and her siblings were vaccinated — which required heroic levels of catching. Then, in spring, we took Kiko, Bubka, and Ponyo to be spayed and started looking for homes for them.</p>
+      </div>
+    </div>
+
+    <!-- ---- Story block 3: Surgery ---- -->
+    <div class="story__block" data-num="03">
+      <div class="story__photo photo photo--cover">
+        <img src="assets/Kiko-resting-after-spay-surgery.jpeg" alt="Kiko resting after spay surgery">
+      </div>
+      <div class="story__text">
+        <span class="story__chapter">Chapter 03 — Surgery</span>
+        <h3 class="t-subheading mt-xs">One Cone, Zero Drama</h3>
+        <p class="t-body c-mid mt-sm">She came through surgery calmly and without complaint. Spayed, chipped, vaccinated, and ready for the next chapter. The vet said she was in great shape. Kiko seemed to already know that.</p>
+      </div>
+    </div>
+
+    <!-- ---- Story block 4: Foster home ---- -->
+    <div class="story__block story__block--rev" data-num="04">
+      <div class="story__photo photo photo--cover">
+        <video src="assets/Kiko-at-the-foster-home-first-days.mp4" autoplay muted loop playsinline></video>
+      </div>
+      <div class="story__text">
+        <span class="story__chapter">Chapter 04 — Foster Home</span>
+        <h3 class="t-subheading mt-xs">2.5 Months That Changed Everything</h3>
+        <p class="t-body c-mid mt-sm">That's how Kiko came to stay with us — me, my partner, and our dog Fuji. She lived with us for two and a half months. Sometimes easy, sometimes not. Always worth it.</p>
+        <p class="t-body c-mid mt-sm">We fell for her completely. And you will too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 3: FIRST DAYS
+     EDIT: 3 photos, pull quote
+============================================== -->
+<section id="first-days">
+  <div class="container">
+    <div class="first-days__header">
+      <span class="pill pill--ghost">First Days</span>
+      <!-- EDIT: section heading -->
+      <h2 class="t-heading c-light mt-sm">She Was Scared.<br>But She Tried.</h2>
+    </div>
+
+    <div class="first-days__photos">
+      <div class="first-days__photo photo photo--cover">
+        <img src="assets/Kiko-under-the-table.jpeg" alt="Kiko under the table">
+      </div>
+      <div class="first-days__photo photo photo--cover">
+        <img src="assets/Kiko-peeking-out.jpeg" alt="Kiko peeking out">
+      </div>
+      <div class="first-days__photo photo photo--cover">
+        <video src="assets/Kiko-with-fuji.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+
+    <div class="first-days__quote">
+      <p>"She found a safe spot under the table and didn't come out for several days. We couldn't approach her, let alone touch her. She was very thin — she'd been too shy to steal food from the others in the enclosure. The first one she trusted wasn't us. It was Fuji."</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 4: HOW SHE LEARNED TO TRUST
+     EDIT: heading, intro, two stage cards
+============================================== -->
+<section id="trust">
+  <div class="container">
+    <div class="trust__header">
+      <span class="accent-bar"></span>
+      <!-- EDIT: section heading and intro -->
+      <h2 class="t-heading">How She Learned<br>to Trust</h2>
+      <p class="t-body c-mid mt-sm" style="max-width:52ch;">Trust didn't come all at once. First there had to be a dog. Then, slowly, there could be people.</p>
+    </div>
+
+    <div class="trust__grid">
+      <div class="trust__card">
+        <div class="trust__photo photo photo--cover">
+          <video src="assets/Kiko-with-fuji.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="trust__card-body">
+          <span class="trust__stage-num">Stage 1</span>
+          <h3 class="t-subheading mt-xs">First, Fuji</h3>
+          <p class="t-body c-mid mt-sm">Fuji — our dog — was the one she chose first. She watched him like an older, very confident brother, followed him everywhere, and copied everything he did. Through him, she started to understand that this home was safe. That the people in it were safe too.</p>
+        </div>
+      </div>
+
+      <div class="trust__card">
+        <div class="trust__photo photo">[photo: Kiko with a person]</div>
+        <div class="trust__card-body">
+          <span class="trust__stage-num">Stage 2</span>
+          <h3 class="t-subheading mt-xs">Then, Us</h3>
+          <p class="t-body c-mid mt-sm">She started by taking food from our hands — grab and run. Then she began exploring the flat on her own terms: one room, then another, then the kitchen, then the whole apartment. After a month she was walking freely around the house, sleeping soundly, obeying perfectly. We kept asking ourselves: how is she this good? She's a puppy.</p>
+          <p class="t-body c-mid mt-sm">Then one day she just came over, lay down next to us, and let herself be hugged. That was it. We were done for.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 5: WHAT SHE KNOWS
+     EDIT: six cards — icon, title, list items
+============================================== -->
+<section id="knows">
+  <div class="container">
+    <div class="knows__header">
+      <span class="pill pill--red">Skills &amp; Behavior</span>
+      <!-- EDIT: section heading -->
+      <h2 class="t-heading c-light mt-sm">What She Knows</h2>
+      <p class="t-body c-muted-light mt-xs" style="max-width:46ch;">She's not a blank slate. She's put in the work.</p>
+    </div>
+
+    <div class="knows__grid">
+      <!-- EDIT: for each card, change the icon (emoji), title, and list items -->
+
+      <div class="knows__card">
+        <span class="knows__icon">🎓</span>
+        <p class="knows__card-title">Commands</p>
+        <ul class="knows__list">
+          <li>Sit</li>
+          <li>Down</li>
+          <li>Wait</li>
+          <li>Drop it</li>
+          <li>Give paw / other paw / high five</li>
+          <li>Spin</li>
+          <li>Let's go</li>
+          <li>Place (go to your spot)</li>
+        </ul>
+      </div>
+
+      <div class="knows__card">
+        <span class="knows__icon">🌳</span>
+        <p class="knows__card-title">Outdoors</p>
+        <ul class="knows__list">
+          <li>Walks beautifully on a loose leash</li>
+          <li>Still learning the short leash (doesn't love it)</li>
+          <li>Follows your direction off-leash</li>
+          <li>Jumps after birds and cats — hilariously</li>
+          <li>Scared of unfamiliar dogs and people at first</li>
+          <li>Adores the ones she already knows</li>
+        </ul>
+      </div>
+
+      <div class="knows__card">
+        <span class="knows__icon">🐕</span>
+        <p class="knows__card-title">With Other Dogs</p>
+        <ul class="knows__list">
+          <li>Warm and playful with familiar dogs</li>
+          <li>Cautious with strangers — needs a proper intro</li>
+          <li>Not a fan of overly bouncy dogs</li>
+          <li>Will come around. Give her time.</li>
+        </ul>
+      </div>
+
+      <div class="knows__card">
+        <span class="knows__icon">👥</span>
+        <p class="knows__card-title">With People</p>
+        <ul class="knows__list">
+          <li>Reserved with new people at first</li>
+          <li>Absolutely devoted to familiar ones</li>
+          <li>No jumping, no nipping</li>
+          <li>Will win you over. She always does.</li>
+        </ul>
+      </div>
+
+      <div class="knows__card">
+        <span class="knows__icon">📦</span>
+        <p class="knows__card-title">New Objects &amp; Sounds</p>
+        <ul class="knows__list">
+          <li>Scared of brooms, mops, and vacuums</li>
+          <li>Cautious with unfamiliar objects in general</li>
+          <li>Approaches on her own terms — slowly, carefully</li>
+          <li>Gets there. Always gets there.</li>
+        </ul>
+      </div>
+
+      <div class="knows__card">
+        <span class="knows__icon">🏠</span>
+        <p class="knows__card-title">Around the Home</p>
+        <ul class="knows__list">
+          <li>Doesn't chew furniture</li>
+          <li>Does chew earplugs — fair warning</li>
+          <li>Carries socks and clothes to her spot</li>
+          <li>Sleeps like an angel</li>
+          <li>Loves the balcony and watching the world go by</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 6: HER FIRSTS
+     EDIT: 8 cards — label, title, caption, photo
+============================================== -->
+<section id="firsts">
+  <div class="container">
+    <div class="firsts__header">
+      <span class="accent-bar"></span>
+      <!-- EDIT: section heading and description -->
+      <h2 class="t-heading">Her Firsts</h2>
+      <p class="t-body c-mid mt-sm" style="max-width:46ch;">Every first was a small victory. Here are the ones we made sure to notice.</p>
+    </div>
+
+    <div class="firsts__grid mt-lg">
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first walk]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Real Walk</p>
+          <p class="first-card__caption">Sniffed everything. Investigated every crack in the pavement. An hour-long walk in a 200m radius.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first play with a dog]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Play With a Dog</p>
+          <p class="first-card__caption">A tentative bounce. Then full zoomies. We cheered out loud.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo photo--cover">
+          <video src="assets/first-bath.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Bath</p>
+          <p class="first-card__caption">Resigned. Patient. Immediately tried to roll in something afterward. Very on-brand.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first toy]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Her Own Toy</p>
+          <p class="first-card__caption">Sniffed it for ten minutes. Then carried it everywhere. It is hers. This is not negotiable.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first bed]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Her Own Bed</p>
+          <p class="first-card__caption">Circled it five times. Lay down. Looked mildly suspicious. Slept three hours straight.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first step out from under the table]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Out from Under the Table</p>
+          <p class="first-card__caption">Day four. She just walked out and looked around. Like she'd always lived here.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: first hug with a person]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Hug</p>
+          <p class="first-card__caption">She came over herself. Put her head on a lap. We didn't move for twenty minutes.</p>
+        </div>
+      </div>
+
+      <div class="first-card">
+        <div class="first-card__photo photo">[photo: Kiko out on a walk off-leash]</div>
+        <div class="first-card__body">
+          <span class="first-card__label">First</span>
+          <p class="first-card__title">Off-Leash Walk</p>
+          <p class="first-card__caption">Stayed close the whole time. Kept checking back. A very good girl about it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 7: KIKO BEING KIKO
+     EDIT: gallery photos + captions, habit chips
+     NOTE: first gallery photo spans 2 rows —
+           use your most expressive photo there
+============================================== -->
+<section id="being-kiko">
+  <div class="container">
+    <div class="being-kiko__header">
+      <span class="pill pill--red">The Good Stuff</span>
+      <!-- EDIT: section heading and intro -->
+      <h2 class="t-heading c-light mt-sm">Kiko Being Kiko</h2>
+      <p class="t-body c-muted-light mt-sm" style="max-width:50ch;">These are not quirks. These are features. You'll love every single one.</p>
+    </div>
+
+    <div class="being-kiko__gallery">
+      <div class="gallery-item">
+        <div class="photo photo--dark" style="height:100%; min-height:400px; border-radius:0;">[photo: Kiko's most expressive photo]</div>
+        <p class="gallery-item__caption">Lying in the sun, tracking its movement across the flat like a very small satellite dish.</p>
+      </div>
+      <div class="gallery-item">
+        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko with deer antler chew]</div>
+        <p class="gallery-item__caption">Deer antler. Hours of focused, very serious work.</p>
+      </div>
+      <div class="gallery-item">
+        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko with yoghurt container]</div>
+        <p class="gallery-item__caption">Will clean a yoghurt pot with surgical precision.</p>
+      </div>
+      <div class="gallery-item">
+        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko sleeping in a funny pose]</div>
+        <p class="gallery-item__caption">Her sleeping positions are art. Document them all.</p>
+      </div>
+      <div class="gallery-item">
+        <div class="photo photo--dark" style="aspect-ratio:1/1; border-radius:0;">[photo: Kiko on the balcony]</div>
+        <p class="gallery-item__caption">Balcony supervisor. Watching the neighbourhood. Very thorough.</p>
+      </div>
+    </div>
+
+    <div class="being-kiko__habits mt-lg">
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Textile Collection</span>
+        <p>Socks, sleep masks, harnesses, shoelaces — if it's fabric and unattended, she'll carry it to her spot. Not to destroy. Just to have. You'll find things in interesting places.</p>
+      </div>
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Cucumber Fan</span>
+        <p>Loves cucumber. Loves tomatoes. Is suspicious of strawberries. Has no opinion on apples. Has very strong opinions about cottage cheese containers.</p>
+      </div>
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Sunspot Migration</span>
+        <p>She follows the sunlight as it moves across the apartment throughout the day. It is a whole routine. She knows exactly where it will be next.</p>
+      </div>
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Sleep Touch</span>
+        <p>She likes to fall asleep touching a person. Just a paw on your foot, or a nose against your leg. She doesn't need much. Just to know you're there.</p>
+      </div>
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Couch Philosopher</span>
+        <p>Loves lying on the sofa and thinking. About what, exactly? Unknown. But it looks very important.</p>
+      </div>
+      <div class="habit-chip">
+        <span class="habit-chip__title">The Enthusiastic Eater</span>
+        <p>She eats fast. Very fast. Use a slow feeder bowl — it helps, and it'll give her brain something to do at the same time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 8: WORK IN PROGRESS
+     EDIT: heading, two columns of items
+============================================== -->
+<section id="wip">
+  <div class="container">
+    <div class="wip__header">
+      <span class="accent-bar"></span>
+      <!-- EDIT: heading and intro -->
+      <h2 class="t-heading">Still a Work<br>in Progress</h2>
+      <p class="t-body c-mid mt-sm" style="max-width:52ch;">She's not finished. Neither are any of us. Here's what to expect and what to keep working on together.</p>
+    </div>
+
+    <div class="wip__grid mt-lg">
+      <!-- ---- Column 1: What she's still learning ---- -->
+      <div>
+        <p class="wip__col-title">What She's Still Learning</p>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>Brooms, mops, vacuums</strong>
+            <p>Still scared. Introduce slowly, let her investigate on her own terms. Don't force it.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>Unfamiliar dogs and people</strong>
+            <p>She warms up — it just takes a bit. Don't rush introductions. Let her sniff and observe first.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>Eating too fast</strong>
+            <p>Use a slow feeder bowl. She'll eat from it happily — it also keeps her brain busy.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>"Come" command</strong>
+            <p>Knows it at home. Still building it in new environments and outdoors.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>New objects</strong>
+            <p>She approaches cautiously and on her own schedule. Just leave new things out — she'll investigate when she's ready.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>Eating off the ground</strong>
+            <p>Works on it. A "leave it" command helps — she knows it, just needs consistent reinforcement.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--red"></div>
+          <div class="wip__item-text">
+            <strong>Toileting on the move</strong>
+            <p>She sometimes goes in the middle of the pavement. Still learning to find a better spot. Patient praise helps.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Column 2: Work with a trainer ---- -->
+      <div>
+        <p class="wip__col-title">Good to Work On with a Trainer</p>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--olive"></div>
+          <div class="wip__item-text">
+            <strong>Fear of unfamiliar things</strong>
+            <p>A trainer can build a structured desensitization plan — brooms, vacuums, new people, new places. She responds very well to games and rewards.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--olive"></div>
+          <div class="wip__item-text">
+            <strong>"Come" in new environments</strong>
+            <p>She knows the command. Building it in parks and on the street with consistent proofing will make it solid fast.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--olive"></div>
+          <div class="wip__item-text">
+            <strong>Loose leash on a short lead</strong>
+            <p>She doesn't love the short leash yet. A trainer who uses positive reinforcement will help her associate it with good things.</p>
+          </div>
+        </div>
+        <div class="wip__item">
+          <div class="wip__dot wip__dot--olive"></div>
+          <div class="wip__item-text">
+            <strong>General confidence building</strong>
+            <p>Enrichment, nose work, puzzle feeders — anything that lets her explore and succeed on her own. She blossoms with it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 9: CARE CHEATSHEET
+     EDIT: all values inside .care-row__value spans
+============================================== -->
+<section id="care">
+  <div class="container">
+    <div class="care__header">
+      <span class="accent-bar"></span>
+      <!-- EDIT: section heading and description -->
+      <h2 class="t-heading">Care Cheatsheet</h2>
+      <p class="t-body c-mid mt-sm" style="max-width:48ch;">Everything your vet will ask. Everything you'll want in one place on day one.</p>
+    </div>
+
+    <div class="care__grid mt-lg">
+      <div class="care-card">
+        <span class="care-card__section">Basics</span>
+        <p class="care-card__title">About Kiko</p>
+        <div class="care-row">
+          <span class="care-row__label">Breed</span>
+          <span class="care-row__value">Mixed (tricolour street dog)</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Age</span>
+          <span class="care-row__value">~7 months</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Weight</span>
+          <span class="care-row__value">16 kg</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Spayed</span>
+          <span class="care-row__value">Yes</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Microchipped</span>
+          <span class="care-row__value">Yes</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">EU Pet Passport</span>
+          <span class="care-row__value">Yes</span>
+        </div>
+      </div>
+
+      <div class="care-card">
+        <span class="care-card__section">Vaccinations</span>
+        <p class="care-card__title">Vaccine Record</p>
+        <div class="care-row">
+          <span class="care-row__label">Rabies</span>
+          <span class="care-row__value">2 Feb 2025 / Due Feb 2026</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Core combo (viruses)</span>
+          <span class="care-row__value">2 Feb 2025 / Due Feb 2026</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Next booster (both)</span>
+          <span class="care-row__value">2 February 2027</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Stickers</span>
+          <span class="care-row__value">In the passport</span>
+        </div>
+      </div>
+
+      <div class="care-card">
+        <span class="care-card__section">Treatments</span>
+        <p class="care-card__title">Parasite Control</p>
+        <div class="care-row">
+          <span class="care-row__label">Flea &amp; Tick (last)</span>
+          <span class="care-row__value">NexGard Spectra — 25 May</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Flea &amp; Tick (next)</span>
+          <span class="care-row__value">25 June — monthly</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Products</span>
+          <span class="care-row__value">NexGard / Bravecto / Simparica</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Deworming (next)</span>
+          <span class="care-row__value">Milpro — 25 June</span>
+        </div>
+        <div class="care-row">
+          <span class="care-row__label">Known allergies</span>
+          <span class="care-row__value">None</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 10: GEAR WE LIKE
+     EDIT: 4 gear cards — photo, title, description
+============================================== -->
+<section id="gear">
+  <div class="container">
+    <div class="gear__header">
+      <span class="pill pill--dark">Gear</span>
+      <!-- EDIT: section heading and description -->
+      <h2 class="t-heading mt-sm">Gear We Like</h2>
+      <p class="t-body c-mid mt-sm" style="max-width:48ch;">Tested and Kiko-approved. No promises she won't drag the leash through a puddle.</p>
+    </div>
+
+    <div class="gear__grid mt-lg">
+      <!-- EDIT: for each card, change the photo label, title, and description -->
+
+      <div class="gear-card">
+        <div class="gear-card__photo photo">[photo: harness]</div>
+        <div class="gear-card__body">
+          <p class="gear-card__title">Y-Shape Harness</p>
+          <p class="gear-card__desc">Julius K9 IDC. No pressure on the throat, easy to put on once she's used to the routine.</p>
+        </div>
+      </div>
+
+      <div class="gear-card">
+        <div class="gear-card__photo photo">[photo: long line]</div>
+        <div class="gear-card__body">
+          <p class="gear-card__title">Long Line (5 m)</p>
+          <p class="gear-card__desc">For recall training in open areas. Get one with a handle loop, not just a clip end.</p>
+        </div>
+      </div>
+
+      <div class="gear-card">
+        <div class="gear-card__photo photo">[photo: rope toy]</div>
+        <div class="gear-card__body">
+          <p class="gear-card__title">Rope Toy</p>
+          <p class="gear-card__desc">Her absolute favorite. She doesn't play tug — she carries it around like a prize. Buy a spare.</p>
+        </div>
+      </div>
+
+      <div class="gear-card">
+        <div class="gear-card__photo photo">[photo: dog bed]</div>
+        <div class="gear-card__body">
+          <p class="gear-card__title">Orthopedic Bed</p>
+          <p class="gear-card__desc">She likes having her own space. A raised bolster edge she can rest her chin on is a major plus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==============================================
+     SECTION 11: FINALLY HOME
+     No buttons, no CTAs — just Kiko's voice.
+     EDIT: heading, three body paragraphs,
+           signature line, photo
+============================================== -->
+<section id="finally-home">
+  <div class="finally__inner">
+    <div class="finally__text">
+      <span class="pill pill--red" style="margin-bottom:1.75rem;">Finally</span>
+      <!-- EDIT: closing heading -->
+      <h2 class="t-heading finally__heading">Hi.<br>I'm Kiko.</h2>
+      <!-- EDIT: Kiko's voice — warm, a little funny, honest. Three short paragraphs. -->
+      <p>Hi. I'm Kiko. I was born on a hill in Tbilisi, in a pack that didn't trust anyone. For a long time, neither did I.</p>
+      <p>Then some people kept showing up — every day, rain or not, with warm food and zero agenda. Then there was a dog named Fuji who showed me, very patiently, that home is a real thing. Then there were two humans who sat very still and let me decide when I was ready. I took my time. They waited.</p>
+      <p>I've heard there's a family in Germany who's been getting ready for me for a while now. They've been nervous and excited and have thought about me a lot. I think that's very sweet. I've been thinking about them too, in my own way — from the balcony, mostly, watching the street and wondering what comes next.</p>
+      <p>I'll need a little time to find my spot in your home, learn your sounds, figure out the routine. I'm not slow — I'm careful. There's a difference. Once I trust you, I will follow you everywhere, sleep touching your leg, and carry your socks to my bed as a gift. That's just how I show love.</p>
+      <p class="finally__sig">— Kiko, Tbilisi → Germany</p>
+    </div>
+    <!-- EDIT: the best photo of Kiko -->
+    <div class="finally__photo photo photo--dark">[photo: Kiko — the best one]</div>
+  </div>
+</section>
+
+</body>
+</html>
